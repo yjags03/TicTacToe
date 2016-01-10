@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <style>       
+            .btn-responsive {
+                padding: 2px 4px;
+                font-size: 150%;
+                line-height: 1;
+                border-radius: 3px;
+                width: 75px;
+                height: 75px;
+            }
+
+            .ttt_row {
+              padding-top:10px;
+              padding-bottom:10px;
+            }
+        
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.btn_click').on('click', function (event) {
+             
+                $(this).text("X");
+                
+             });
+        });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="center-block col-md-6 text-center" style="float: none; background-color: skyblue">
+                <h1>Yarams FreeCodeCamp Zipline</h1>
+                <h2>Tic Tac Toe Game</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="center-block col-md-6 text-center" style="float: none; background-color:greenyellow">
+                <table align="center" style="border:2px solid red;">
+                    <tr class="ttt_row">
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                    </tr>
+                    <tr class="ttt_row">
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                    </tr>
+                    <tr class="ttt_row">
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
