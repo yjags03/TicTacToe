@@ -31,8 +31,97 @@
              
                 $(this).text("X");
                 
-             });
+            });
+
+            startGame();
         });
+
+        var cell_contents = {
+            EMPTY: 0,
+            CROSS: "X",
+            NOUGHT: "O"
+        }
+
+        //Game State
+        var game_states = {
+            PLAYING: 0,
+            DRAW: 1,
+            CROSS_WON: 2,
+            NOUGHT_WON: 3
+        }
+
+        //Game board and Game status
+
+        var game_board_rows = 3;
+        var game_board_cols = 3;
+
+        //Variable for current game State
+        var currentState;
+        var currentPlayer;
+        var currentRow;
+        var currentColumn;
+
+
+
+
+        var game_board_array = [];
+
+
+        function startGame() {
+            initializeGame();
+            printBoard();
+
+            //do {
+            //    playerMove(currentPlayer);
+            //    updateGame(currentPlayer, currentRow, currentColumn);
+
+            //    printBoard();
+
+            //    //Print message if game is over
+            //    if (currentState == game_states.CROSS_WON) {
+            //        console.log("'X' Won: Game Over !");
+            //    }
+            //    else if (currentState == game_states.NOUGHT_WON) {
+            //        console.log("'O' Won: Game Over !");
+            //    }
+            //    else if (currentState == game_states.DRAW) {
+            //        console.log("It is a draw: Play Again !");
+            //    }
+
+            //    //Change the player
+            //    currentPlayer = (currentPlayer == cellcontets.CROSS) ? cellcontets.NOUGHT : cellcontets.CROSS;
+
+            //}
+            //while (currentState == game_states.PLAYING);
+        }
+
+        function initializeGame() {
+
+            for (var row = 0; row < game_board_rows; ++row) {
+                var colarray = [];
+                for (var col = 0; col < game_board_cols; ++col) {                    
+                    colarray.push(cell_contents.NOUGHT);
+                }
+                game_board_array.push(colarray);
+            }
+            currentState = game_states.PLAYING;
+            currentPlayer = cell_contents.CROSS;
+        }
+
+        function printBoard() {
+            for (var row = 0; row < game_board_rows; ++row) {
+                for (var col = 0; col < game_board_cols; ++col) {
+                    printCell(game_board_array[row][col],row,col);                   
+                }               
+            }           
+        }
+
+        function printCell(celldata, row, col) {
+            var rownum = row + 1;
+            var colnum = col + 1;
+
+            $('#tictactoe_table tr:nth-child(' + rownum + ') td:nth-child(' + colnum + ')').find("button").text(celldata);            
+        }
     </script>
 </head>
 <body>
@@ -46,7 +135,7 @@
 
         <div class="row">
             <div class="center-block col-md-6 text-center" style="float: none; background-color:greenyellow">
-                <table align="center" style="border:2px solid red;">
+                <table id="tictactoe_table" align="center" style="border:2px solid red;">
                     <tr class="ttt_row">
                         <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
                         <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
