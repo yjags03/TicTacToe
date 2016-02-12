@@ -7,20 +7,20 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
 
-    <style>       
-            .btn-responsive {
-                padding: 2px 4px;
-                font-size: 150%;
-                line-height: 1;
-                border-radius: 3px;
-                width: 75px;
-                height: 75px;
-            }
+    <style>
+        .btn-responsive {
+            padding: 2px 4px;
+            font-size: 150%;
+            line-height: 1;
+            border-radius: 3px;
+            width: 75px;
+            height: 75px;
+        }
 
-            .ttt_row {
-              padding-top:10px;
-              padding-bottom:10px;
-            }
+        .ttt_row {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
         
     </style>
 
@@ -28,9 +28,9 @@
         $(document).ready(function () {
 
             $('.btn_click').on('click', function (event) {
-             
+
                 $(this).text("X");
-                
+
             });
 
             startGame();
@@ -99,7 +99,7 @@
 
             for (var row = 0; row < game_board_rows; ++row) {
                 var colarray = [];
-                for (var col = 0; col < game_board_cols; ++col) {                    
+                for (var col = 0; col < game_board_cols; ++col) {
                     colarray.push(cell_contents.NOUGHT);
                 }
                 game_board_array.push(colarray);
@@ -111,16 +111,16 @@
         function printBoard() {
             for (var row = 0; row < game_board_rows; ++row) {
                 for (var col = 0; col < game_board_cols; ++col) {
-                    printCell(game_board_array[row][col],row,col);                   
-                }               
-            }           
+                    printCell(game_board_array[row][col], row, col);
+                }
+            }
         }
 
         function printCell(celldata, row, col) {
             var rownum = row + 1;
             var colnum = col + 1;
 
-            $('#tictactoe_table tr:nth-child(' + rownum + ') td:nth-child(' + colnum + ')').find("button").text(celldata);            
+            $('#tictactoe_table tr:nth-child(' + rownum + ') td:nth-child(' + colnum + ')').find("button").text(celldata);
         }
     </script>
 </head>
@@ -130,31 +130,56 @@
             <div class="center-block col-md-6 text-center" style="float: none; background-color: skyblue">
                 <h1>Yarams FreeCodeCamp Zipline</h1>
                 <h2>Tic Tac Toe Game</h2>
-            </div>
-        </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <table id="tictactoe_table" align="left" style="border:2px solid red;">
+                            <tr class="ttt_row">
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                            </tr>
+                            <tr class="ttt_row">
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                            </tr>
+                            <tr class="ttt_row">
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                                <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">Choose the symbol</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-default">
+                                        <input type="radio" id="play_sym1" name="play_sym1" value="1" /> X
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" id="play_sym2" checked="checked" name="play_sym1" value="2" /> O
+                                    </label>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-responsive">PLAY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
 
-        <div class="row">
-            <div class="center-block col-md-6 text-center" style="float: none; background-color:greenyellow">
-                <table id="tictactoe_table" align="center" style="border:2px solid red;">
-                    <tr class="ttt_row">
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                    </tr>
-                    <tr class="ttt_row">
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                    </tr>
-                    <tr class="ttt_row">
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                        <td><button class="btn btn-primary btn-lg btn-responsive btn_click"></button></td>
-                    </tr>
-                </table>
+
             </div>
         </div>
+     
     </div>
-
 </body>
 </html>
