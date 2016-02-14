@@ -27,14 +27,30 @@
     <script>
         $(document).ready(function () {
 
+            var player_symbol = "X";
+
             $('.btn_click').on('click', function (event) {
 
-                $(this).text("X");
+                $(this).text(player_symbol);
 
             });
 
             startGame();
+
+            $("input").on("click", function () {
+                //$("#log").html($("input:checked").val() + " is checked!");
+                //alert("Hello..");
+                //alert($("input:checked").val());
+
+                player_symbol = ($("input:checked").val() === '1')?'X':'O';
+                
+            });
+
         });
+
+
+      
+
 
         var cell_contents = {
             EMPTY: 0,
@@ -154,20 +170,19 @@
                     
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-12">Choose the symbol</div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-12">
+                                <button type="button" class="btn btn-primary">Choose the symbol</button>
                                 <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-default">
+                                    <label class="btn btn-default" style="background-color:#9b59b6;">
                                         <input type="radio" id="play_sym1" name="play_sym1" value="1" /> X
                                     </label>
-                                    <label class="btn btn-default">
+                                    <label class="btn btn-default" style="background-color:#9b59b6;">
                                         <input type="radio" id="play_sym2" checked="checked" name="play_sym1" value="2" /> O
                                     </label>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
+                       
                         <div class="row">
                             <div class="col-md-12">
                                 <button class="btn btn-primary btn-responsive">PLAY</button>
