@@ -21,7 +21,24 @@
             padding-top: 10px;
             padding-bottom: 10px;
         }
-        
+
+        .list-group-item {
+            display: list-item;
+        }
+
+        .playsteps {
+            list-style-position: inside;
+        }
+
+        .playsteps li {
+            position: relative;
+            text-align:left;
+        }
+
+        .playsteps li a {
+             position: absolute;
+             left: 30px;
+        }
     </style>
 
     <script>
@@ -42,14 +59,14 @@
                 //alert("Hello..");
                 //alert($("input:checked").val());
 
-                player_symbol = ($("input:checked").val() === '1')?'X':'O';
-                
+                player_symbol = ($("input:checked").val() === '1') ? 'X' : 'O';
+
             });
 
         });
 
 
-      
+
 
 
         var cell_contents = {
@@ -167,34 +184,47 @@
                             </tr>
                         </table>
                     </div>
-                    
+
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary">Choose the symbol</button>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-default" style="background-color:#9b59b6;">
-                                        <input type="radio" id="play_sym1" name="play_sym1" value="1" /> X
-                                    </label>
-                                    <label class="btn btn-default" style="background-color:#9b59b6;">
-                                        <input type="radio" id="play_sym2" checked="checked" name="play_sym1" value="2" /> O
-                                    </label>
+                                <div>
+                                    <ol class="list-group playsteps">
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-primary">Choose the symbol</button>
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default" style="background-color:#9b59b6;">
+                                                    <input type="radio" id="play_sym1" name="play_sym1" value="1" /> X
+                                                </label>
+                                                <label class="btn btn-default" style="background-color:#9b59b6;">
+                                                    <input type="radio" id="play_sym2" checked="checked" name="play_sym1" value="2" /> O
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <button class="btn btn-primary btn-responsive">PLAY</button>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <button>Result</button>
+                                        </li>
+                                    </ol>
                                 </div>
+
                             </div>
                         </div>
-                       
+
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary btn-responsive">PLAY</button>
+
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div>
 
 
             </div>
         </div>
-     
+
     </div>
 </body>
 </html>
